@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">All Examples</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello Nasir</string>
+    <string name="hi">Click it!</string>
+    <string name="hello_asd">Autosoft Dynamics pvt Ltd</string>
+    <string name="lorem_ipsumm">not working</string>
+    <string name="change_image">Change Image To drawable</string>
+    <string name="change_to_assets">Change Image To Assets</string>
+    <string name="change_image_to_resource">
+        Resource</string>
+    <string name="change_image_to_asset">Asset</string>
+    <string name="title_activity_course">CourseActivity</string>
+    <string name="title_activity_action_bar">ActionBarActivity</string>
+    <string name="title_activity_registration">RegistrationActivity</string>
+</resources>

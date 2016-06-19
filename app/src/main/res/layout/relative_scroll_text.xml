@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/raImage"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/ra_icon"
+
+        />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="New Course"
+        android:id="@+id/txtHead"
+
+        android:layout_centerHorizontal="true"
+        android:textSize="32sp"
+        android:gravity="center"
+        android:layout_below="@id/raImage"
+
+        />
+
+
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollView"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/txtHead"
+
+        >
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lorem_ipsumm"
+            android:id="@+id/txtLong"
+
+
+
+
+            />
+
+    </ScrollView>
+
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ivChange"
+        android:layout_alignBottom="@+id/scrollView"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/image_10101"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/change_image"
+        android:id="@+id/btnChangeImage"
+        android:layout_alignBottom="@+id/scrollView"
+        android:layout_alignParentEnd="true"
+        android:onClick="btnChangeImageClickHandler"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/change_to_assets"
+        android:id="@+id/btnChangeToAssets"
+        android:layout_above="@+id/btnChangeImage"
+        android:layout_alignParentEnd="true"
+        android:onClick="btnChangeToAssetsClick"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:id="@+id/btnRegisterCourse"
+        android:layout_above="@+id/ivChange"
+        android:layout_alignParentEnd="true"
+        android:onClick="courseRegisterHandler"
+        />
+
+
+</RelativeLayout>

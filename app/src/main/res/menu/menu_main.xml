@@ -1,0 +1,43 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.networks.allexamples.MainActivity">
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_change_resource"
+        android:orderInCategory="101"
+        android:title="@string/change_image_to_resource"
+
+        app:showAsAction="always"
+         />
+
+    <item
+        android:id="@+id/action_change_asset"
+        android:orderInCategory="102"
+        android:title="@string/change_image_to_asset"
+
+        app:showAsAction="always"/>
+
+
+    <item
+        android:id="@+id/action_goto_course"
+        android:orderInCategory="105"
+        android:title="Course"
+
+        app:showAsAction="always"
+        />
+
+    <item
+        android:id="@+id/action_goto_aba"
+        android:orderInCategory="106"
+        android:title="ActBar"
+        android:onClick="actionGoToABAHandler"
+        app:showAsAction="always"
+        />
+
+</menu>

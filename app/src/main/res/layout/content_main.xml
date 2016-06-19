@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.networks.allexamples.MainActivity"
+    tools:showIn="@layout/activity_main"
+    android:id="@+id/helloLayout"
+    >
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go To Course"
+        android:id="@+id/btnGoToCourse"
+        android:layout_gravity="center_vertical"
+        android:onClick="btnGotoCourseHandler"
+        style="@style/ButtonStyle"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_asd" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WebSite"
+        android:id="@+id/btnWebsite"
+        android:layout_gravity="center_vertical"
+        android:onClick="btnWebsiteHandler"
+        style="@style/ButtonStyle"
+        />
+
+
+</LinearLayout>
