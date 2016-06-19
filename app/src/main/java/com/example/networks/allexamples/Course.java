@@ -5,18 +5,20 @@ package com.example.networks.allexamples;
  */
 public class Course {
 
+    private int courseNumber;
+    private String courseTitle;
+    private String description;
+    private double credits;
+
+    public Course(int courseNumber, String courseTitle, String description, double credits) {
+        this.courseNumber = courseNumber;
+        this.courseTitle = courseTitle;
+        this.description = description;
+        this.credits = credits;
+    }
 
 
-    private int courseNumber = 10101;
-    private String courseTitle = "Implementing Android First App";
-    private String description = "As the first course in the Android Developer Nanodegree, " +
-            "Developing Android Apps is the foundation of our advanced Android curriculum. " +
-            "This course blends theory and practice to help you build great apps the right way." +
-            " In this course, you'll work with instructors step-by-step to build a " +
-            "cloud-connected Android app, and learn best practices of mobile development, " +
-            "and Android development in particular.";
 
-    private  double credits = 3;
 
     public int getCourseNumber() {
         return courseNumber;
@@ -34,5 +36,8 @@ public class Course {
         return credits;
     }
 
-
+    @Override
+    public String toString() {
+        return courseTitle;
+    }
 }

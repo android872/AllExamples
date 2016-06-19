@@ -53,9 +53,12 @@ public class CourseActivity extends AppCompatActivity {
 
         //GETTING DATA FROM INTENT
         coursTitle = getIntent().getStringExtra(MainActivity.COURSE_TITLE);
+        String desc = getIntent().getStringExtra("courseDesc");
 
         TextView tvTitle = (TextView) findViewById(R.id.txtHead);
         tvTitle.setText(coursTitle);
+        TextView tvDesc = (TextView) findViewById(R.id.txtLong);
+        tvDesc.setText(desc);
     }
 
 

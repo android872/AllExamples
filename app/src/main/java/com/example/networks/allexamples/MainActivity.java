@@ -85,6 +85,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        //ADDING DYNAMIC REGISTER MENU OPTION AND NAVIGATING TO IT THROUGH INTENT AND CLICK LISTNER IMPLIMENTAION
         MenuItem registerActivityItem = menu.add(Menu.NONE,Menu.NONE,107,"Register");
         registerActivityItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
         registerActivityItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener(){
@@ -98,6 +100,20 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+
+        //ADDING DYNAMIC REGISTER MENU OPTION AND NAVIGATING TO IT THROUGH INTENT AND CLICK LISTNER IMPLIMENTAION
+        MenuItem courseCatelogActivity = menu.add(Menu.NONE,Menu.NONE,108,"Course Catelog");
+        courseCatelogActivity.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        courseCatelogActivity.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener(){
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Intent intent = new Intent(MainActivity.this,CourseCatelogActivity.class);
+                startActivity(intent);
+
+                return false;
+            }
+
+        });
 
 
         Log.d(LOG_TAQ, "Logging from OnCreateOptionsMenu of MainActivity");
@@ -173,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void btnGotoCourseHandler(View view){
         Intent courseIntent = new Intent(this,CourseActivity.class);
-        Course course = new Course();
+        CourseSingle course = new CourseSingle();
         //PASSING DATA TO ACT
         courseIntent.putExtra(COURSE_TITLE,course.getCourseTitle());
 
