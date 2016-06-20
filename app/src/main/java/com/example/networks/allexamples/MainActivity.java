@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceActivity;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -116,6 +117,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+//PREF MENU ITEM
+        MenuItem prefActivity = menu.add(Menu.NONE,Menu.NONE,109,"Preferences");
+        prefActivity.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        prefActivity.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener(){
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Intent intent = new Intent(MainActivity.this,PreferencesJavaActivity.class);
+                startActivity(intent);
+
+                return false;
+            }
+
+        });
         Log.d(LOG_TAQ, "Logging from OnCreateOptionsMenu of MainActivity");
         return true;
     }

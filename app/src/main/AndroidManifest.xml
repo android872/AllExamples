@@ -33,7 +33,8 @@
             android:name=".RegistrationActivity"
             android:label="@string/title_activity_registration"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".CourseCatelogActivity"></activity>
+        <activity android:name=".CourseCatelogActivity" />
+        <activity android:name=".PreferencesJavaActivity"></activity>
     </application>
 
 </manifest>
