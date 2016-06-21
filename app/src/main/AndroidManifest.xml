@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.networks.allexamples">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -34,7 +36,11 @@
             android:label="@string/title_activity_registration"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CourseCatelogActivity" />
-        <activity android:name=".PreferencesJavaActivity"></activity>
+        <activity android:name=".PreferencesJavaActivity" />
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".CreateFileActivity" />
+        <activity android:name=".JasonActivity" />
+        <activity android:name=".ExternalFileActivity"></activity>
     </application>
 
 </manifest>
