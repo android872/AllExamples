@@ -11,7 +11,7 @@ import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 
-import org.
+
 import android.content.Context;
 import android.content.res.Resources.NotFoundException;
 import android.util.Log;

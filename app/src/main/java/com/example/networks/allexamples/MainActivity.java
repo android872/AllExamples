@@ -115,6 +115,64 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+//
+//
+//        //ADDING DYNAMIC REGISTER MENU OPTION AND NAVIGATING TO IT THROUGH INTENT AND CLICK LISTNER IMPLIMENTAION
+        MenuItem externalFileAct = menu.add(Menu.NONE,Menu.NONE,121,"External File Create R/W");
+        externalFileAct.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        externalFileAct.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener(){
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Intent intent = new Intent(MainActivity.this,ExternalFileActivity.class);
+                startActivity(intent);
+
+                return false;
+            }
+
+        });
+
+        //ADDING DYNAMIC REGISTER MENU OPTION AND NAVIGATING TO IT THROUGH INTENT AND CLICK LISTNER IMPLIMENTAION
+        MenuItem jsonFileActi = menu.add(Menu.NONE,Menu.NONE,122,"Json File R/W");
+        jsonFileActi.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        jsonFileActi.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener(){
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Intent intent = new Intent(MainActivity.this,JasonActivity.class);
+                startActivity(intent);
+
+                return false;
+            }
+
+        });
+
+
+        //ADDING DYNAMIC REGISTER MENU OPTION AND NAVIGATING TO IT THROUGH INTENT AND CLICK LISTNER IMPLIMENTAION
+        MenuItem XMLFileRWActi = menu.add(Menu.NONE,Menu.NONE,123,"XML File R/W");
+        XMLFileRWActi.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        XMLFileRWActi.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener(){
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Intent intent = new Intent(MainActivity.this,XMLPullParserActivity.class);
+                startActivity(intent);
+
+                return false;
+            }
+
+        });
+
+        //ADDING DYNAMIC REGISTER MENU OPTION AND NAVIGATING TO IT THROUGH INTENT AND CLICK LISTNER IMPLIMENTAION
+        MenuItem internalFileActi = menu.add(Menu.NONE,Menu.NONE,124,"Internal File R/W");
+        internalFileActi.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        internalFileActi.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener(){
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Intent intent = new Intent(MainActivity.this,CreateFileActivity.class);
+                startActivity(intent);
+
+                return false;
+            }
+
+        });
 
 
 //PREF MENU ITEM
