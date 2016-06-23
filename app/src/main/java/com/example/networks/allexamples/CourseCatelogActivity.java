@@ -1,14 +1,19 @@
 package com.example.networks.allexamples;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -27,9 +32,13 @@ public class CourseCatelogActivity extends AppCompatActivity {
 
 
         data = DataProvider.getData();
-        ArrayAdapter<Course> courseArrayAdapter = new ArrayAdapter<Course>(this,android.R.layout.simple_list_item_1,data);
+        //ArrayAdapter<Course> courseArrayAdapter = new ArrayAdapter<Course>(this,android.R.layout.simple_list_item_1,data);
+
+        ArrayAdapter<Course> courseArrayAdapter =
+                new CourseListAdapter(this,0,data);
         ListView listView = (ListView) findViewById(android.R.id.list);
         listView.setAdapter(courseArrayAdapter);
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -96,5 +105,37 @@ public class CourseCatelogActivity extends AppCompatActivity {
     public void actionGoToABAHandler(MenuItem item){
         Intent intent = new Intent(this,ActionBarActivity.class);
         startActivity(intent);}
+
+
+    class CourseListAdapter extends ArrayAdapter<Course>{
+        Context context;
+        List<Course> objects;
+
+        public CourseListAdapter(Context context, int resource, List<Course> objects) {
+            super(context, resource, objects);
+
+            this.context = context;
+            this.objects = objects;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            Course course = objects.get(position);
+            LayoutInflater inflater =
+                    (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+            View view = inflater.inflate(R.layout.course_item,null);
+            TextView tv = (TextView) view.findViewById(R.id.courseText);
+            tv.setText(course.getCourseTitle());
+
+            ImageView iv = (ImageView) view.findViewById(R.id.imageCourse);
+            int res = context.getResources().getIdentifier("image_"+ course.getCourseNumber(),
+                    "drawable",
+                    context.getPackageName()
+                    );
+
+
+            return view;
+        }
+    }
 
 }
