@@ -41,7 +41,8 @@
         <activity android:name=".CreateFileActivity" />
         <activity android:name=".JasonActivity" />
         <activity android:name=".ExternalFileActivity" />
-        <activity android:name=".XMLPullParserActivity"></activity>
+        <activity android:name=".XMLPullParserActivity" />
+        <activity android:name=".Sqlite_Activity"></activity>
     </application>
 
 </manifest>
