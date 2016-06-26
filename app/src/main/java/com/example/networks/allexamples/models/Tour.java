@@ -3,16 +3,16 @@ package com.example.networks.allexamples.models;
 import java.text.NumberFormat;
 
 public class Tour {
-	private int id;
+	private long id;
 	private String title;
 	private String description;
 	private double price;
 	private String image;
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public String getTitle() {

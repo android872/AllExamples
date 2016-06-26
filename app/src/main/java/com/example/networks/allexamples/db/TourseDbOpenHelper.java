@@ -50,4 +50,7 @@ public class TourseDbOpenHelper extends SQLiteOpenHelper {
         onCreate(db);
 
     }
+
+
+
 }
