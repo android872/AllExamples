@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.networks.allexamples.activity_sqlite"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+
+
+    <item
+        android:id="@+id/menu_settings"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="Settings"/>
+
+    <item
+        android:id="@+id/menu_all"
+        android:orderInCategory="100"
+        app:showAsAction="always"
+        android:title="All"/>
+
+    <item
+        android:id="@+id/menu_cheap"
+        android:orderInCategory="100"
+        app:showAsAction="always"
+        android:title="Cheap"/>
+
+    <item
+        android:id="@+id/menu_fancy"
+        android:orderInCategory="100"
+        app:showAsAction="always"
+        android:title="Fance"/>
+
+
+</menu>

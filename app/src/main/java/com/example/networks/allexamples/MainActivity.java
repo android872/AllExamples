@@ -175,6 +175,20 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        //ADDING DYNAMIC REGISTER MENU OPTION AND NAVIGATING TO IT THROUGH INTENT AND CLICK LISTNER IMPLIMENTAION
+        MenuItem sqliteAct = menu.add(Menu.NONE,Menu.NONE,125,"SQLite");
+        sqliteAct.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        sqliteAct.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener(){
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Intent intent = new Intent(MainActivity.this,Sqlite_Activity.class);
+                startActivity(intent);
+
+                return false;
+            }
+
+        });
+
 //PREF MENU ITEM
         MenuItem prefActivity = menu.add(Menu.NONE,Menu.NONE,109,"Preferences");
         prefActivity.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
