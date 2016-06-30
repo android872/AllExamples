@@ -189,6 +189,9 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+
+
+
 //PREF MENU ITEM
         MenuItem prefActivity = menu.add(Menu.NONE,Menu.NONE,109,"Preferences");
         prefActivity.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);

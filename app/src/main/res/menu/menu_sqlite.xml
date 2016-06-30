@@ -31,5 +31,11 @@
         app:showAsAction="always"
         android:title="Fance"/>
 
+    <item
+        android:id="@+id/my_tours"
+        android:orderInCategory="100"
+        app:showAsAction="always"
+        android:title="My Tourse"/>
+
 
 </menu>

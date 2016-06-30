@@ -1,5 +1,7 @@
 package com.example.networks.allexamples;
 
+import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -128,6 +130,11 @@ public class Sqlite_Activity extends AppCompatActivity {
                 tours = dataSource.findFiltered("price >= 1000", "price DESC");
                 refreshDisplay();
                 break;
+            case R.id.my_tours:
+                tours = dataSource.findMyTours();
+                refreshDisplay();
+                break;
+
 
             default:
                 break;
@@ -137,15 +144,38 @@ public class Sqlite_Activity extends AppCompatActivity {
 
 
     public void refreshDisplay() {
-        ArrayAdapter<Tour> adapter = new ArrayAdapter<Tour>(this,
-                android.R.layout.simple_list_item_1, tours);
+
+        ArrayAdapter<Tour> adapterCustom = new TourListAdapter(this,android.R.id.list,tours);
+        ListView listView1 = (ListView) findViewById(android.R.id.list);
+        listView1.setAdapter(adapterCustom);
+
+        listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Tour tour = tours.get(position);
+                Intent intent = new Intent(Sqlite_Activity.this,TourDetailActivity.class);
+                intent.putExtra(".model.Tour",tour);
+                startActivity(intent);
+
+
+            }
+        });
+
+
+        //ArrayAdapter<Tour> adapter = new ArrayAdapter<Tour>(this,android.R.layout.simple_list_item_1, tours);
        // setListAdapter(adapter);
 
 
 //        ArrayAdapter<Course> courseArrayAdapter =
 //                new CourseListAdapter(this,0,data);
-        ListView listView = (ListView) findViewById(android.R.id.list);
-        listView.setAdapter(adapter);
+
+
+
+
+        //ListView listView = (ListView) findViewById(android.R.id.list);
+        //listView.setAdapter(adapter);
+
+
 
 //        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
@@ -155,6 +185,8 @@ public class Sqlite_Activity extends AppCompatActivity {
 //            }
 //        });
     }
+
+
 
 
 

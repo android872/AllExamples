@@ -1,8 +1,12 @@
 package com.example.networks.allexamples.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.util.Log;
+
 import java.text.NumberFormat;
 
-public class Tour {
+public class Tour implements Parcelable {
 	private long id;
 	private String title;
 	private String description;
@@ -44,4 +48,51 @@ public class Tour {
 		NumberFormat nf = NumberFormat.getCurrencyInstance();
 		return title + "\n(" + nf.format(price) + ")";
 	}
+
+
+	public Tour() {
+	}
+
+	public Tour(Parcel in) {
+		Log.i("Tour", "Parcel constructor");
+
+		id = in.readLong();
+		title = in.readString();
+		description = in.readString();
+		price = in.readDouble();
+		image = in.readString();
+	}
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		Log.i("Tour", "writeToParcel");
+
+		dest.writeLong(id);
+		dest.writeString(title);
+		dest.writeString(description);
+		dest.writeDouble(price);
+		dest.writeString(image);
+	}
+
+	public static final Parcelable.Creator<Tour> CREATOR =
+			new Parcelable.Creator<Tour>() {
+
+				@Override
+				public Tour createFromParcel(Parcel source) {
+					Log.i("Tour", "createFromParcel");
+					return new Tour(source);
+				}
+
+				@Override
+				public Tour[] newArray(int size) {
+					Log.i("Tour", "newArray");
+					return new Tour[size];
+				}
+
+			};
 }

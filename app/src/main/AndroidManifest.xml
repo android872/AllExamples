@@ -43,6 +43,7 @@
         <activity android:name=".ExternalFileActivity" />
         <activity android:name=".XMLPullParserActivity" />
         <activity android:name=".Sqlite_Activity"></activity>
+        <activity android:name=".TourDetailActivity"></activity>
     </application>
 
 </manifest>

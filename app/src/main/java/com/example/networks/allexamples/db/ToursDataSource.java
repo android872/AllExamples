@@ -91,6 +91,27 @@ public class ToursDataSource {
         return tours;
     }
 
+    public boolean addToMyTours(Tour tour) {
+        ContentValues values = new ContentValues();
+        values.put(TourseDbOpenHelper.COLUMN_ID, tour.getId());
+        long result = db.insert(TourseDbOpenHelper.TABLE_MYTOURS, null, values);
+        return (result != -1);
+    }
+
+    public List<Tour> findMyTours() {
+
+        String query = "SELECT tours.* FROM " +
+                "tours JOIN mytours ON " +
+                "tours.tourId = mytours.tourId";
+        Cursor cursor = db.rawQuery(query, null);
+
+        Log.i(LOGTAG, "Returned " + cursor.getCount() + " rows");
+
+        List<Tour> tours = cursorToList(cursor);
+        return tours;
+    }
+
+
 
 
 
