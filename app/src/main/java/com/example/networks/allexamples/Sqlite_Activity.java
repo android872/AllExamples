@@ -25,6 +25,8 @@ public class Sqlite_Activity extends AppCompatActivity {
     ToursDataSource dataSource;
     public static final String LOGTAG = "SQLITE";
     private List<Tour> tours;
+    boolean isMyTours;
+    private static final int TOUR_DETAIL_ACTIVITY = 1001;
 
 
     @Override
@@ -50,6 +52,7 @@ public class Sqlite_Activity extends AppCompatActivity {
             tours = dataSource.findAll();
         }
 
+        isMyTours = false;
         refreshDisplay();
 
     }
@@ -132,6 +135,7 @@ public class Sqlite_Activity extends AppCompatActivity {
                 break;
             case R.id.my_tours:
                 tours = dataSource.findMyTours();
+                isMyTours = true;
                 refreshDisplay();
                 break;
 
@@ -154,8 +158,13 @@ public class Sqlite_Activity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Tour tour = tours.get(position);
                 Intent intent = new Intent(Sqlite_Activity.this,TourDetailActivity.class);
-                intent.putExtra(".model.Tour",tour);
-                startActivity(intent);
+                //intent.putExtra(".model.Tour",tour);
+                //startActivity(intent);
+                intent.putExtra(".model.Tour", tour);
+                intent.putExtra("isMyTours", isMyTours);
+
+                startActivityForResult(intent, TOUR_DETAIL_ACTIVITY);
+
 
 
             }
@@ -186,8 +195,15 @@ public class Sqlite_Activity extends AppCompatActivity {
 //        });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == TOUR_DETAIL_ACTIVITY && resultCode == -1) {
+            dataSource.open();
+            tours = dataSource.findMyTours();
+            refreshDisplay();
+            isMyTours = true;
+        }
 
-
-
-
+    }
 }

@@ -97,6 +97,12 @@ public class ToursDataSource {
         long result = db.insert(TourseDbOpenHelper.TABLE_MYTOURS, null, values);
         return (result != -1);
     }
+    public boolean removeFromMyTours(Tour tour) {
+        String where = TourseDbOpenHelper.COLUMN_ID + "=" + tour.getId();
+        int result = db.delete(TourseDbOpenHelper.TABLE_MYTOURS, where, null);
+        return (result == 1);
+    }
+
 
     public List<Tour> findMyTours() {
 

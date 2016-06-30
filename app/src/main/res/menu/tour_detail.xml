@@ -8,4 +8,13 @@
         app:showAsAction="always"
         android:title="Add Tour"/>
 
+
+
+    <item
+        android:id="@+id/menu_delete"
+        android:orderInCategory="100"
+        app:showAsAction="always"
+        android:title="Delete Tour"/>
+
+
 </menu>

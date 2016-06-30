@@ -18,7 +18,7 @@ public class TourDetailActivity extends AppCompatActivity {
 
 	Tour tour;
 	ToursDataSource dataSource;
-	
+    boolean isMyTours;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -33,6 +33,7 @@ public class TourDetailActivity extends AppCompatActivity {
 		
 		Bundle b = getIntent().getExtras();
 		tour = b.getParcelable(".model.Tour");
+        isMyTours = b.getBoolean("isMyTours");
 		
 		refreshDisplay();
 		dataSource = new ToursDataSource(this);
@@ -41,7 +42,17 @@ public class TourDetailActivity extends AppCompatActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.tour_detail, menu);
-		return true;
+
+        // Show delete menu item if we came from My Tours
+        menu.findItem(R.id.menu_delete)
+                .setVisible(isMyTours);
+
+        // Show add menu item if we didn't come from My Tours
+        menu.findItem(R.id.menu_add)
+                .setVisible(!isMyTours);
+
+
+        return true;
 	}
 
 	@Override
@@ -54,7 +65,14 @@ public class TourDetailActivity extends AppCompatActivity {
 					Log.i("TourDetail", "Tour not added");
 				}
 				break;
-		}
+            case R.id.menu_delete:
+                if (dataSource.removeFromMyTours(tour)) {
+                    setResult(-1);
+                    finish();
+                }
+                break;
+
+        }
 		return super.onOptionsItemSelected(item);
 	}
 
@@ -79,5 +97,17 @@ public class TourDetailActivity extends AppCompatActivity {
         }
 		
 	}
+	@Override
+	protected void onResume() {
+		super.onResume();
+		dataSource.open();
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		dataSource.close();
+	}
+
 
 }
